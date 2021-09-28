@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyCodeGenerator</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <style type="text/css">
+    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+    
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+        font-family: 'Roboto', sans-serif; 
+    }
+    body{
+        font-size: 20px;
+        background-color: #2F3144;
+    }
+    section{
+        min-height: 100vh;
+        width: 100%;
+        padding: 100px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .container{
+        width: 90%;
+        max-width: 1000px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .container div{
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding: 30px;
+        border-radius: 10px;
+        cursor: pointer;
+        box-shadow: 0px 0px 10px 0px #0000001c;
+        transition: 0.3s ease box-shadow;
+    }
+    .container div:hover{
+        box-shadow: 0px 0px 60px 0px #fff;
+    }
+    .container h2{
+        margin: 20px 0;
+        font-size: 60px;
+        text-transform: uppercase;
+    }
+    .keyCode{
+        position: relative;
+    }
+    .arrow {
+        font-size: 80px;
+        background-color: transparent!important;
+        color: #fff;
+        padding: 0 100px!important;
+        box-shadow: none!important;
+        cursor: default!important;
+    }
+    .overlay{
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: #2F3144;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+    }
+    .overlay.hide{
+        display: none;
+    }
+    .popup{
+        position: absolute;
+        left: 69.5%;
+        top: 10%;
+        border-radius: 5px;
+        transform: translateX(-50%);
+        opacity: 0;
+        pointer-events: none; 
+    }
+    .popup.active{
+        animation: popup 1s ease-in-out forwards;
+    }
+    
+    @keyframes popup{
+        0%{
+        opacity: 0;
+        pointer-events: none;
+        transform: translate(-50%);
+        }
+        40%{
+        opacity: 1;
+        pointer-events: auto;
+        transform: translate(-50%);           
+        }
+        80%{
+        opacity: 1;
+        pointer-events: auto;
+        transform: translate(-50%);           
+        }
+        100%{
+        opacity: 0;
+        pointer-events: none;
+        transform: translate(-50%);           
+        }
+    }
+
+    @media only screen and (max-width: 1000px) {
+        .container{
+            flex-direction: column
+        }
+        .arrow{
+            padding: 30px 0 !important;
+            transform: rotate(90deg);
+        }
+        .popup{
+        position: absolute;
+        left: 50%;
+        top: 90%;
+        transform: translateX(-50%);
+        }
+        .overlay h1{
+            padding: 30px;
+            font-size: 30px;
+        }
+    }
+    
+    
+   
+    </style>
+</head>
+<body>
+    <section>
+        <div class="container">
+            <div class="key">
+                <h1>Pressed Key</h1>
+                <H2>H</H2>
+            </div>
+            <div class="arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="keyCode">
+                <h1>Key Code</h1>
+                <h2>34</h2>
+                <p>Click To Copy</p>
+            </div>
+            <div class="popup">
+                <h4>Copied 📄</h4>
+            </div>
+        </div>
+    </section>
+    <div class="overlay">
+        <h1>Press Any Key To Start!</h1>
+    </div>
+    <script src="./KeyCodeGenerator.js"></script>
+</body>
+</html>

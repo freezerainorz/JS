@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Navigation Bar</title>
+    <style type="text/css">
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+    *{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        box-sizing: border-box;
+        font-family: 'Roboto', sans-serif;
+        
+    }
+    body{
+        background-color: rgb(28,27,34);
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+    ul{
+        background-color: aliceblue;
+        border-radius: 4px;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: -7px 9px 17px 0px rgba(94, 93, 93, 0.623);
+    }
+    li a{
+        display: inline-block;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: black;
+        font-weight: 700;
+        font-size: 26px;
+    }
+    li:hover a{
+        color: crimson;
+    }
+    nav{
+        position: relative;
+    }
+    .icon{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: -100px;
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        background-color: aliceblue;
+        background-image: url(http://image.flaticon.com/icons/svg/545/545705.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 50%;
+        cursor: pointer;
+        box-shadow: -7px 9px 17px 0px rgba(94, 93, 93, 0.623);
+        transition: 0.5s ease transform;
+    }
+    .icon.close{
+        transform: translateY(-50%) rotate(360deg);
+        background-image: url(http://image.flaticon.com/icons/svg/748/748122.svg);
+
+    }
+    ul{
+        width: 0px;
+        overflow: hidden;
+        transform: translateX(50px);
+        pointer-events: none;
+        opacity: 0;
+        transition: 0.5s ease;
+    }
+    nav.show ul{
+        width: 450px;
+        transform: translate(0px);
+        opacity: 1;
+        pointer-events: all;
+    }
+    nav{
+        position: absolute;
+        top: 50px;
+        right: 150px;
+    }
+
+    @media only screen and (max-width: 768px) {
+        body{
+            font-size: 14px;
+        }
+        li a{
+            padding: 5px 10px;
+            font-size: 16px;
+            font-weight: 900;
+
+        }
+        nav ul{
+            padding: 15px;
+        }
+        nav.show ul{
+            width: 250px;
+        }
+        .icon{
+            width: 45px;
+            height: 45px;
+            right: -50px;
+        }
+        nav{
+            top: 10px;
+            right: 60px;
+        }
+    }
+    
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/">About</a></li>
+            <li><a href="/">Shop</a></li>
+            <li><a href="/">Contact</a></li>
+        </ul>
+        <div class="icon"></div>
+    </nav>
+
+    <script src="./AnimatedNavigationBar.js"></script>    
+</body>
+</html>

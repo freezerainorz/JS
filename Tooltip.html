@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tooltip</title>
+    <style type="text/css">
+     @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+    *{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        box-sizing: border-box;
+        font-family: 'Roboto', sans-serif;
+    }
+    html{
+        font-size: 16px;
+
+    }
+    body{
+        background-color: azure;
+        width: 100%;
+    }
+    section{
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .container{
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+        position: relative;
+    }
+    .container img{
+        width: 100%;
+        height: 100%;
+    }
+    .all-tooltips{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+    }
+    .tooltip-content{
+        position: absolute;
+        background-color: white;
+        box-shadow: 0px 0px 20px #00000020;
+        padding: 30px;
+        border-radius: 8px;
+        width: 90vw;
+        max-width: 300px;
+        opacity: 0;
+        pointer-events: none ;
+        z-index: 2; 
+    }
+    .tooltip-content .arrow{
+        position: absolute;
+        border: 10px solid transparent;
+        border-bottom-color: white;
+        top: 0px;
+        left: 50%;
+        transform: translate(-50%, -100%);
+    }
+    .pin{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background-color: white;
+        height: 25px;
+        width: 25px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    .pin::after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: white;
+        border-radius: 50%;
+        animation: puls-effect 1s ease-in-out infinite;
+    }
+    .tooltip.active .tooltip-content{
+        opacity: 1;
+        pointer-events: all;
+    }
+    /* custom style for Tooltip-1 */
+    .tooltip-1 .pin{
+        left: 82%;
+        top: 40%;
+        height: 15px;
+        width: 15px;
+    }
+    .tooltip-1 .tooltip-content{
+        display: flex;
+        max-width: 500px;
+        align-items: stretch;
+        justify-content: center;
+        padding: 0;
+        background-color: aliceblue;
+    }
+    .tooltip-1.active .tooltip-content{
+        display: flex;
+    }
+    .tooltip-1 .tooltip-content .img{
+        width: 50%;
+        object-fit: cover;
+    }
+    .tooltip-1 .tooltip-content .content{
+        width: 50%;
+        padding: 20px;
+    }
+    .tooltip-1 .tooltip-content .content h1{
+        font-size: 24px;
+    }
+    .tooltip-1 .tooltip-content .content p{
+        font-size: 14px;
+    }
+    .tooltip-1 .tooltip-content .content button{
+        font-size: 18px;
+        font-weight: 400;
+        border: none;
+        outline: none;
+        background-color: white;
+        color: black;
+        padding: 10px;
+        cursor: pointer;
+        margin-top: 20px;
+        border-radius: 4px;
+        box-shadow: 0px 0px 20px #00000020;
+    }
+      /* custom style for Tooltip-2 */
+    .tooltip-2 .pin{
+        top: 40%;
+        left: 10%;
+    }
+    
+    @keyframes puls-effect{
+        0%{
+            transform: scale(0.5);
+            opacity: 1;
+        }
+        100%{
+            transform: scale(3);
+            opacity: 0;
+        }
+    }
+    @media (max-width: 768px){
+        .tooltip-1 .tooltip-content{
+            flex-direction: column;
+            max-width: 300px;
+        }
+        .tooltip-1 .tooltip-content .content,
+        .tooltip-1 .tooltip-content .img{
+            width: 100%;
+        }
+    }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="container">
+            <img src="https://images.pexels.com/photos/279719/pexels-photo-279719.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=400&w=800" alt="img">
+            <div class="all-tooltips">
+                <div class="tooltip tooltip-1">
+                    <div class="pin"></div>
+                    <div class="tooltip-content">
+                        <div class="arrow"></div>
+                        <div class="img">
+                            <img src="https://images.pexels.com/photos/6913410/pexels-photo-6913410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                        </div>
+                        <div class="content">
+                            <h1>Hello Tooltip-1</h1>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim facilis ut quos vel aliquam. Ea recusandae nulla esse, alias ullam tenetur vitae voluptas quasi sed ipsam, sunt sequi obcaecati doloribus?</p>
+                            <button>Buy Now $199</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="tooltip tooltip-2">
+                    <div class="pin"></div>
+                    <div class="tooltip-content">
+                        <div class="arrow"></div>
+                        <div class="content">
+                            <h1>Hello Tooltip-2</h1>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim facilis ut quos vel aliquam. Ea recusandae nulla esse, alias ullam tenetur vitae voluptas quasi sed ipsam, sunt sequi obcaecati doloribus?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="./Tooltip.js"></script>
+</body>
+</html>

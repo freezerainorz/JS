@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="calculator.js" defer></script>
+    <style type=text/css>
+    @import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
+    *{
+        box-sizing: border-box;
+        font-family: 'Lato', sans-serif;
+        font-weight: normal;
+    }
+    body {
+        padding: 0;
+        margin: 0;
+        background: #aaa;
+    }
+    .calculator-grid{
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        grid-template-columns: repeat(4, 100px);
+        grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+    }
+    </style>
+</head>
+<body>
+    <div class="calculator-grid">
+        <div class="output">
+            <div class="previous-operand"></div>
+            <div class="current-operand">
+            </div>
+            <button class="span-two">AC</button>
+            <button>DEL</button>
+            <button>÷</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>*</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>+</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>-</button>
+            <button>.</button>
+            <button>0</button>
+            <button class="span-two">=</button>
+            
+        </div>
+    </div>
+</body>
+</html>

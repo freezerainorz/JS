@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>featured section</title>
+    <style type="text/css">
+    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+    *{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        box-sizing: border-box;
+        font-family: 'Roboto', sans-serif;
+    }
+    body{
+        --color-1: #2F3144;
+        --color-2: #FFFFFF;
+        --color-3: #FFBC00;
+        --color-4: #DA8F00;
+        --color-5: #E7E8EC;
+        --color-6: #F1F2F7;
+        overflow-x: hidden;
+    }
+    html{
+        font-size: 10px;
+    }
+    section{
+        min-height: 100vh;
+        width: 100%;
+        background-color: var(--color-2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .container{
+        padding: 100px 30px;
+        width: 100%;
+        max-width: 1200px;
+
+    }
+    .container .head h1{
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 25px;
+        color: var(--color-1);
+        margin-bottom: 50px;
+        max-width: 700px;
+
+    }
+    .container .main{
+        display: flex;
+        flex-direction: column;
+    }
+    .left .card{
+        width: 100%;
+        padding: 40px 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        transition: 0.3s ease-in-out background-color;
+    }
+    .left .card ion-icon{
+        padding: 15px;
+        background-color: var(--color-3);
+        border-radius: 50%;
+        font-size: 25px;
+        color: white;
+    }
+    .left .card h2{
+        font-size: 20px;
+        font-weight: 700;
+        text-transform: capitalize;
+        color: var(--color-1);
+        margin: 10px 0;
+    }
+    .left .card:hover {
+        background-color: var(--color-3);
+    }
+    .left .card:hover ion-icon {
+        background-color: var(--color-2);
+        color: var(--color-1);
+    }
+                                                                
+    .right{
+        
+        border: 1px solid var(--color-5);
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    .right h1{
+        font-size: 18px;
+        font-weight: 700;
+        padding-left: 20px;
+
+    }
+    .right .blog-item{
+        padding: 10px 20px;
+        margin-top: 20px;
+        cursor: pointer;
+        border-radius: 8px;
+    }
+    .blog-item h3{
+        font-size: 18px;
+        font-weight: 700;
+
+    }
+    .blog-item p{
+        color: var(--color-4);
+        font-size: 16px;
+        font-weight: 400;
+    }
+    .blog-item:hover{
+        background-color: var(--color-5);
+    }
+
+    /* floating card in right bottom corner */
+    .float-text{
+        display: inline-block;
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        width: fit-content;
+        background-color: var(--color-1);
+        color: var(--color-2);
+        text-transform: capitalize;
+        font-size: 15px;
+        padding: 10px 20px;
+        border-radius: 4px;
+        box-shadow: 0px 0px 10px var(--color-1);
+        cursor: pointer;
+        border: 1px solid var(--color-2);
+    }
+    .float-card-info{
+        width: 300px;
+        position: absolute;
+        background-color: var(--color-1);
+        border: 2px solid var(--color-2);
+        overflow: hidden;
+        bottom: 5px;
+        right: -100%;
+        padding: 30px;
+        border-radius: 8px;
+        transition: 0.5s ease-in-out right;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+    .float-card-info p{
+        color: var(--color-2);
+        font-size: 20px;
+        text-transform: capitalize;
+        width: 100%;
+        font-weight: 500;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .float-card-info .icons{
+        width: 120px;
+        margin: 0 auto;
+        flex-direction: row;
+        margin-bottom: 20px;
+
+    }
+    .float-card-info .icons a{
+        display: inline-block;
+        cursor: pointer;
+        color: var(--color-2);
+    }
+    .float-card-info .icons a:hover{
+        color: var(--color-4);
+    }
+    .float-card-info .link{
+        width: 100%;
+        display: block;
+        text-decoration: none;
+        color: var(--color-2);
+        font-size: 14px;
+        text-align: center;
+        margin-top: 5px;
+    }
+    .gg-icon{
+        font-size: 20px;
+        margin: auto;
+    }
+    .gg-close-r {
+        font-size: 28px;
+        color:var(--color-2);
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+    }
+    .float-card-info.active {
+        right: 5px;
+        bottom: 5px;
+    }
+    
+    .float-card-info .hire {
+        background-color: var(--color-3);
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-size: 18px;
+        border-radius: 6px;
+        width: fit-content;
+        margin: 5px 20px;
+        padding: 10px 20px;
+        margin-top: 20px;
+    }
+    
+    
+    @media only screen and (min-width: 700px){
+        .container .main{
+            flex-direction: row;
+        }
+        .container .left{
+            flex: 0.7;
+            display: grid;
+            grid-template: 1fr 1fr / 1fr 1fr;
+            grid-gap: 20px;
+        }
+        .container .right{
+            flex: 0.3;
+            margin: 30px;
+        }
+        .container .card{
+            margin: 0;
+        }
+        .container .head h1{
+            font-size: 34px;
+            font-weight: 900;
+            line-height: 50px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="container">
+            <div class="head"><h1>Programmatically or manually monitor, protect, and report your data</h1></div>
+            <div class="main">
+                <div class="left">
+                    <div class="card">
+                        <ion-icon name="grid-outline"></ion-icon>
+                        <h2>Collections</h2>
+                        <p>
+                            A Collection’s fields define the structure of the Items within it.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <ion-icon name="layers-outline"></ion-icon>
+                        <h2>Items</h2>
+                        <p>
+                            Beyond the user defined fields, there are a handful of additional fields.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <ion-icon name="image-outline"></ion-icon>
+                        <h2>Images</h2>
+                        <p>
+                            Upload a new image set the image url to the corresponding item’s field.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <ion-icon name="code-slash-outline"></ion-icon>
+                        <h2>API Versions</h2>
+                        <p>
+                            In addition to an access token, requests also must specify which version they should use.
+                        </p>
+                    </div>
+                </div>
+                <div class="right">
+                    <h1>From Our Blog</h1>
+                    <div class="blog-item">
+                        <h3>Expanding support for JCB payments</h3>
+                        <p>Jane Wagner</p>
+                    </div>
+                    <div class="blog-item">
+                        <h3>Customize to match your brand</h3>
+                        <p>Edward Bowen</p>
+                    </div>
+                    <div class="blog-item">
+                        <h3>Launch in five more European countries</h3>
+                        <p>Rosalie Chambers</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- floating card in right bottom corner -->
+     <div class="float-text">
+         <p>get in touch</p>
+     </div>   
+     <div class="float-card-info">
+        <ion-icon name="close-outline" class="gg-close-r"></ion-icon>
+        <p>coded by Web Cifar</p>
+        <div class="icons">
+            <a href="https://www.youtube.com/channel/UCdxaLo9ALJgXgOUDURRPGiQ" target="_blank"><ion-icon name="logo-youtube" class="gg-icon"></ion-icon></a>
+            <a href="https://facebook.com/webcifar" target="_blank"><ion-icon name="logo-facebook" class="gg-icon"></ion-icon></a>
+            <a href="https://instagram.com/web_cifar" target="_blank"><ion-icon name="logo-instagram" class="gg-icon"></ion-icon></a>
+            <a href="https://twitter.com/webcifar" target="_blank"><ion-icon name="logo-twitter" class="gg-icon"></ion-icon></a>
+            <a href="https://pph.me/webcifar" target="_blank" class="hire">HIRE</a>
+            <a href="https://webcifar.com" target="_blank" class="link">webcifar.com</a>
+            <a href="mailto:info@webcifar.com" target="_blank" class="link">info@webcifar.com</a>
+        </div>
+     </div>
+    </section>
+
+
+    <script src="./featured section.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
+
+
+
+
+
